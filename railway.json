@@ -1,0 +1,4 @@
+﻿{
+  "build": { "command": "./gradlew build" },
+  "start": { "command": "java -jar build/libs/CarPulseTracker.jar" }
+}
