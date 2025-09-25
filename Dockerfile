@@ -5,7 +5,10 @@ WORKDIR /app
 # Copy everything into the container
 COPY . .
 
-# Use the Gradle wrapper to build the project
+# 🔓 Make the Gradle wrapper executable
+RUN chmod +x gradlew
+
+# 🛠️ Use the Gradle wrapper to build the project
 RUN ./gradlew build
 
 # 🚀 Stage 2: Run the built JAR using a lightweight JDK image
@@ -15,5 +18,5 @@ WORKDIR /app
 # Copy the built JAR from the previous stage
 COPY --from=build /app/build/libs/*.jar app.jar
 
-# Run the app
+# 🧠 Run the app
 CMD ["java", "-jar", "app.jar"]
